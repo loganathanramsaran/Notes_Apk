@@ -50,7 +50,7 @@ function NoteForm({ saveNote, editingNote, setEditingNote }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-gray-300 dark:bg-gray-800 p-5 rounded-lg space-y-6 border-2 border-gray-300 dark:border-yellow-400 "
+      className="bg-gray-300 lg:min-h-[70vh] dark:bg-gray-800 p-5 rounded-lg space-y-6 border-2 border-gray-300 dark:border-yellow-400 "
     >
       {error && <div className="text-red-500 text-sm font-medium">{error}</div>}
       {success && (

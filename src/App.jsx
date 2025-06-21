@@ -114,7 +114,8 @@ function App() {
               setEditingNote={setEditingNote}
             />
           </div>
-          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-4">
+          <div className="lg:col-span-2 grid sm:grid-cols-2 border-2 border-gray-300 dark:border-yellow-400 p-2 rounded-lg
+           bg-gray-200 gap-4  overflow-y-scroll max-h-[70vh] dark:bg-gray-800">
             {filteredNotes.length === 0 ? (
               <p className="text-gray-500 dark:text-gray-400">
                 No notes found.

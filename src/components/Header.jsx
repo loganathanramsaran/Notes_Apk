@@ -28,8 +28,8 @@ function Header({ dark, setDark, clearNotes, search, setSearch }) {
     <div className="sticky top-0 z-50 backdrop-blur-md bg-rose-950 dark:bg-gray-900/80 shadow-md border-b-4 border-yellow-500 dark:border-b-2">
       <div className="max-w-7xl mx-auto p-4 flex flex-col md:flex-row gap-4 justify-between items-center">
         <h1 className="flex text-3xl font-bold text-blue-600 dark:text-white">
-          <Notebook className="text-yellow-600" size={35}/>
-          Note<span className="text-yellow-600">Keeper</span>
+          <Notebook className="text-yellow-500" size={35}/>
+          Note<span className="text-yellow-500">Keeper</span>
         </h1>
 
         <div className="w-full md:w-1/3">

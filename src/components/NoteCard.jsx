@@ -32,7 +32,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
 
   return (
     <div
-      className={`relative border-l-4 p-4 rounded-lg shadow bg-gray-50 dark:bg-gray-800 transition-all duration-300 ease-in-out ${colorStyle}`}
+      className={`relative border-l-4 p-4 rounded-lg shadow bg-white/75 dark:bg-gray-700 transition-all duration-300 ease-in-out ${colorStyle}`}
     >
       <div className="absolute top-2 right-2 flex gap-2">
         {!note.trashed ? (
@@ -100,14 +100,14 @@ function NoteCard({ note, updateNote, setEditingNote }) {
       )}
 
       <h2 className="text-xl font-semibold mb-1">{note.title}</h2>
-      <p className="text-sm mb-2">{note.description}</p>
+      <p className="text-sm mb-2 overflow-clip">{note.description}</p>
       <div className="mt-2 text-xs flex flex-wrap gap-2">
         {note.tags?.map((tag, i) => (
           <span
             key={i}
-            className={`px-2 py-1 rounded-full bg-opacity-80 ${
+            className={`px-2 py-0.5 rounded-e-full bg-rose-900 ${
               colorMap[note.color]?.split(" ")[2] || "bg-blue-100"
-            } text-gray-800 dark:text-white`}
+            } text-white dark:text-white`}
           >
             #{tag}
           </span>

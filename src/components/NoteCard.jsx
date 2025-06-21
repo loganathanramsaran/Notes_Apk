@@ -31,7 +31,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
 
   return (
     <div
-      className={`relative border-l-4 p-4 rounded-lg shadow bg-white dark:bg-gray-800 ${colorStyle}`}
+      className={`relative border-l-4 p-4 rounded-lg shadow bg-white dark:bg-gray-800 transition-all duration-300 ease-in-out ${colorStyle}`}
     >
       <div className="absolute top-2 right-2 flex gap-2">
         {!note.trashed ? (
@@ -39,7 +39,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
             <button
               onClick={() => toggle("pinned")}
               title={note.pinned ? "Unpin Note" : "Pin Note"}
-              className="hover:scale-110 transition text-gray-600 dark:text-white"
+              className="hover:scale-110 transition-transform text-gray-600 dark:text-white"
             >
               {note.pinned ? <PinOff size={18} /> : <Pin size={18} />}
             </button>
@@ -47,7 +47,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
             <button
               onClick={() => toggle("archived")}
               title={note.archived ? "Unarchive Note" : "Archive Note"}
-              className="hover:scale-110 transition text-gray-600 dark:text-white"
+              className="hover:scale-110 transition-transform text-gray-600 dark:text-white"
             >
               {note.archived ? (
                 <ArchiveRestore size={18} />
@@ -59,7 +59,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
             <button
               onClick={() => toggle("trashed")}
               title="Move to Trash"
-              className="hover:scale-110 transition text-gray-600 dark:text-white"
+              className="hover:scale-110 transition-transform text-gray-600 dark:text-white"
             >
               <Trash2 size={18} />
             </button>
@@ -67,7 +67,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
             <button
               onClick={() => setEditingNote(note)}
               title="Edit Note"
-              className="hover:scale-110 transition text-gray-600 dark:text-white"
+              className="hover:scale-110 transition-transform text-gray-600 dark:text-white"
             >
               <Pencil size={18} />
             </button>
@@ -77,14 +77,14 @@ function NoteCard({ note, updateNote, setEditingNote }) {
             <button
               onClick={handleRestore}
               title="Restore Note"
-              className="text-green-600 hover:scale-110 transition"
+              className="text-green-600 hover:scale-110 transition-transform"
             >
               <Undo2 size={18} />
             </button>
             <button
               onClick={handleDeleteForever}
               title="Delete Forever"
-              className="text-red-600 hover:scale-110 transition"
+              className="text-red-600 hover:scale-110 transition-transform"
             >
               <XCircle size={18} />
             </button>
@@ -93,7 +93,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
       </div>
 
       {note.pinned && (
-        <span className="text-xs font-semibold text-yellow-700 dark:text-yellow-300">
+        <span className="text-xs font-semibold text-yellow-700 dark:text-yellow-300 animate-wiggle">
           📌 Pinned
         </span>
       )}

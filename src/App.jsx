@@ -74,17 +74,18 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
-      <header className="sticky top-0 z-10 bg-white dark:bg-gray-800 shadow p-4">
+      <header>
         <Header
           view={view}
           setView={setView}
           dark={dark}
           setDark={setDark}
           clearNotes={clearNotes}
+          search={search}
+          setSearch={setSearch}
         />
       </header>
       <main className="p-4 max-w-7xl mx-auto">
-        <SearchBar search={search} setSearch={setSearch} />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-4">
           <div className="lg:col-span-1">
             <NoteForm

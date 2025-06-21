@@ -105,7 +105,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
         {note.tags?.map((tag, i) => (
           <span
             key={i}
-            className={`px-2 py-0.5 rounded-lg bg-green-700 ${
+            className={`px-2 py-0.5 rounded-lg bg-blue-600 ${
               colorMap[note.color]?.split(" ")[2] || "bg-blue-100"
             } text-white dark:text-white`}
           >

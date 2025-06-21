@@ -1,5 +1,4 @@
-// Header.jsx
-import { Trash2, Moon, Sun, Laptop, ChevronDown } from "lucide-react";
+import { Trash2, Moon, Sun, Laptop, ChevronDown, Notebook } from "lucide-react";
 import { useState, useEffect } from "react";
 
 function Header({ dark, setDark, clearNotes, search, setSearch }) {
@@ -26,10 +25,11 @@ function Header({ dark, setDark, clearNotes, search, setSearch }) {
   }, [theme]);
 
   return (
-    <div className="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 shadow-md border-b border-gray-200 dark:border-gray-700">
+    <div className="sticky top-0 z-50 backdrop-blur-md bg-rose-950 dark:bg-gray-900/80 shadow-md border-b-4 border-yellow-500 dark:border-b-2">
       <div className="max-w-7xl mx-auto p-4 flex flex-col md:flex-row gap-4 justify-between items-center">
-        <h1 className="text-xl font-bold text-blue-600 dark:text-white">
-          📝 NoteKeeper
+        <h1 className="flex text-3xl font-bold text-blue-600 dark:text-white">
+          <Notebook className="text-yellow-600" size={35}/>
+          Note<span className="text-yellow-600">Keeper</span>
         </h1>
 
         <div className="w-full md:w-1/3">
@@ -38,7 +38,7 @@ function Header({ dark, setDark, clearNotes, search, setSearch }) {
             placeholder="Search notes..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full p-2 rounded border bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
+            className="w-full p-2 rounded border-2 border-yellow-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
           />
         </div>
 
@@ -47,7 +47,7 @@ function Header({ dark, setDark, clearNotes, search, setSearch }) {
             onClick={() => {
               if (
                 confirm(
-                  "🧹 Are you sure you want to clear ALL notes? This cannot be undone."
+                  "Are you sure you want to clear ALL notes? "
                 )
               ) {
                 clearNotes();

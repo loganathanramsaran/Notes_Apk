@@ -32,7 +32,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
 
   return (
     <div
-      className={`relative border-l-4 p-4 rounded-lg shadow bg-white dark:bg-gray-800 transition-all duration-300 ease-in-out ${colorStyle}`}
+      className={`relative border-l-4 p-4 rounded-lg shadow bg-gray-50 dark:bg-gray-800 transition-all duration-300 ease-in-out ${colorStyle}`}
     >
       <div className="absolute top-2 right-2 flex gap-2">
         {!note.trashed ? (

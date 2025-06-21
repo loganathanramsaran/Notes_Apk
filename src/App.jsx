@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NoteForm from "./components/NoteForm";
 import NoteCard from "./components/NoteCard";
-import SearchBar from "./components/SearchBar"; // Optional, now replaced by Header's search
 import Header from "./components/Header";
 import { Eye, Star, Archive, Trash } from "lucide-react";
 

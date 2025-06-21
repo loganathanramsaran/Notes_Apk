@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useEffect, useState } from "react";
 import NoteForm from "./components/NoteForm";
 import NoteCard from "./components/NoteCard";
@@ -59,17 +58,19 @@ function App() {
     localStorage.removeItem("notes");
   };
 
-  const filteredNotes = notes.filter((note) => {
-    if (note.deleted) return false;
-    if (view === "archived" && !note.archived) return false;
-    if (view === "trash" && !note.trashed) return false;
-    if (view === "pinned" && !note.pinned) return false;
-    if (view === "all" && (note.archived || note.trashed)) return false;
-    return (
-      note.title.toLowerCase().includes(search.toLowerCase()) ||
-      note.description.toLowerCase().includes(search.toLowerCase())
-    );
-  });
+  const filteredNotes = notes
+    .filter((note) => {
+      if (note.deleted) return false;
+      if (view === "archived" && !note.archived) return false;
+      if (view === "trash" && !note.trashed) return false;
+      if (view === "pinned" && !note.pinned) return false;
+      if (view === "all" && (note.archived || note.trashed)) return false;
+      return (
+        note.title.toLowerCase().includes(search.toLowerCase()) ||
+        note.description.toLowerCase().includes(search.toLowerCase())
+      );
+    })
+    .sort((a, b) => b.pinned - a.pinned); // Pinned notes first
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">

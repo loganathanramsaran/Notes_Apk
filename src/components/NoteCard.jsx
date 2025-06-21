@@ -25,7 +25,9 @@ function NoteCard({ note, updateNote, setEditingNote }) {
 
   if (note.deleted) return null;
 
-  const colorStyle = colorMap[note.color] || "border-blue-500";
+  const colorStyle = note.pinned
+    ? "border-yellow-500 bg-yellow-50 dark:bg-yellow-900"
+    : colorMap[note.color] || "border-blue-500";
 
   return (
     <div
@@ -89,6 +91,12 @@ function NoteCard({ note, updateNote, setEditingNote }) {
           </>
         )}
       </div>
+
+      {note.pinned && (
+        <span className="text-xs font-semibold text-yellow-700 dark:text-yellow-300">
+          📌 Pinned
+        </span>
+      )}
 
       <h2 className="text-xl font-semibold mb-1">{note.title}</h2>
       <p className="text-sm mb-2">{note.description}</p>

@@ -50,7 +50,7 @@ function NoteForm({ saveNote, editingNote, setEditingNote }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow space-y-4"
+      className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow space-y-6 "
     >
       {error && <div className="text-red-500 text-sm font-medium">{error}</div>}
       {success && (
@@ -113,20 +113,23 @@ function NoteForm({ saveNote, editingNote, setEditingNote }) {
         </div>
       </div>
 
-      <button
-        type="submit"
-        className="flex items-center text-sm gap-2 p-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-      >
-        {editingNote ? (
-          <>
-            <Pencil size={14} /> Update Note
-          </>
-        ) : (
-          <>
-            <Plus size={14} /> Add Note
-          </>
-        )}
-      </button>
+      <div className="flex justify-center">
+        <button
+          type="submit"
+          className="flex items-center text-sm gap-1 px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+        >
+          {editingNote ? (
+            <>
+              <Pencil size={14} /> Update Note
+            </>
+          ) : (
+            <>
+              <Plus size={14} /> Add Note
+            </>
+          )}
+        </button>
+      </div>
+
     </form>
   );
 }

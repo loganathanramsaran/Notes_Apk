@@ -1,26 +1,12 @@
-import {
-  Eye,
-  Star,
-  Archive,
-  Trash,
-  Trash2,
-  Laptop,
-  Moon,
-  Sun,
-  ChevronDown,
-} from "lucide-react";
+// Header.jsx
+import { Trash2, Moon, Sun, Laptop, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 
-function Header({ view, setView, search, setSearch, dark, setDark, clearNotes }) {
-  const views = [
-    { name: "all", icon: <Eye size={16} /> },
-    { name: "pinned", icon: <Star size={16} /> },
-    { name: "archived", icon: <Archive size={16} /> },
-    { name: "trash", icon: <Trash size={16} /> },
-  ];
-
+function Header({ dark, setDark, clearNotes, search, setSearch }) {
   const [themeMenu, setThemeMenu] = useState(false);
-  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "system");
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "system"
+  );
 
   useEffect(() => {
     if (theme === "dark") {
@@ -30,7 +16,9 @@ function Header({ view, setView, search, setSearch, dark, setDark, clearNotes })
       document.documentElement.classList.remove("dark");
       setDark(false);
     } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
       document.documentElement.classList.toggle("dark", prefersDark);
       setDark(prefersDark);
     }
@@ -40,28 +28,10 @@ function Header({ view, setView, search, setSearch, dark, setDark, clearNotes })
   return (
     <div className="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 shadow-md border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto p-4 flex flex-col md:flex-row gap-4 justify-between items-center">
-        {/* Left: App Title + View Tabs */}
-        <div className="flex flex-col md:flex-row md:items-center gap-2 w-full md:w-auto">
-          <h1 className="text-xl font-bold text-blue-600 dark:text-white">📝 NoteKeeper</h1>
-          <div className="flex flex-wrap gap-2">
-            {views.map((v) => (
-              <button
-                key={v.name}
-                onClick={() => setView(v.name)}
-                className={`flex items-center gap-1 px-3 py-1 rounded transition capitalize text-sm ${
-                  view === v.name
-                    ? "bg-blue-600 text-white font-semibold shadow"
-                    : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600"
-                }`}
-              >
-                {v.icon}
-                {v.name}
-              </button>
-            ))}
-          </div>
-        </div>
+        <h1 className="text-xl font-bold text-blue-600 dark:text-white">
+          📝 NoteKeeper
+        </h1>
 
-        {/* Center: Search */}
         <div className="w-full md:w-1/3">
           <input
             type="text"
@@ -72,11 +42,14 @@ function Header({ view, setView, search, setSearch, dark, setDark, clearNotes })
           />
         </div>
 
-        {/* Right: Clear + Theme */}
         <div className="flex items-center gap-2 w-full md:w-auto justify-end">
           <button
             onClick={() => {
-              if (confirm("🧹 Are you sure you want to clear ALL notes? This cannot be undone.")) {
+              if (
+                confirm(
+                  "🧹 Are you sure you want to clear ALL notes? This cannot be undone."
+                )
+              ) {
                 clearNotes();
               }
             }}
@@ -91,7 +64,13 @@ function Header({ view, setView, search, setSearch, dark, setDark, clearNotes })
               onClick={() => setThemeMenu(!themeMenu)}
               className="flex items-center gap-1 px-3 py-1 rounded bg-yellow-400 dark:bg-gray-700 dark:text-white hover:bg-yellow-500 dark:hover:bg-gray-600 transition text-sm"
             >
-              {theme === "dark" ? <Moon size={16} /> : theme === "light" ? <Sun size={16} /> : <Laptop size={16} />}
+              {theme === "dark" ? (
+                <Moon size={16} />
+              ) : theme === "light" ? (
+                <Sun size={16} />
+              ) : (
+                <Laptop size={16} />
+              )}
               Theme <ChevronDown size={14} />
             </button>
 

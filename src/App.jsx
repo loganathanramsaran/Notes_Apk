@@ -59,7 +59,8 @@ function App() {
     localStorage.removeItem("notes");
   };
 
-  const filteredNotes = notes.filter((note) => {
+  const filteredNotes = notes
+  .filter((note) => {
     if (note.deleted) return false;
     if (view === "archived" && !note.archived) return false;
     if (view === "trash" && !note.trashed) return false;
@@ -69,7 +70,9 @@ function App() {
       note.title.toLowerCase().includes(search.toLowerCase()) ||
       note.description.toLowerCase().includes(search.toLowerCase())
     );
-  });
+  })
+  .sort((a, b) => b.pinned - a.pinned); // ✅ pinned on top
+
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">

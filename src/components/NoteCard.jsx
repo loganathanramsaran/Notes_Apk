@@ -25,6 +25,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
 
   if (note.deleted) return null;
 
+  const isPinned = note.pinned;
   const colorStyle = note.pinned
     ? "border-yellow-500 bg-yellow-50 dark:bg-yellow-900"
     : colorMap[note.color] || "border-blue-500";

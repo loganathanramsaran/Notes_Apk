@@ -16,7 +16,7 @@ NoteKeeper is a fully featured note-taking app built using **React** and **Tailw
 
 ## 🚀 Live Demo
 
-Hosted on **Netlify** → [View App](https://your-app-name.netlify.app)
+Hosted on **Netlify** → [View App](https://my-notes-apk.netlify.app/)
 
 ---
 
@@ -59,7 +59,7 @@ notes-app/
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/notes-app.git
+git clone https://github.com/loganathanramsaran/Notes_Apk
 cd notes-app
 ```
 

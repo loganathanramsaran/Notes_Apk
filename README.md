@@ -106,7 +106,6 @@ Deploy easily to **Netlify**:
 
 - Icons: [Lucide Icons](https://lucide.dev/)
 - UI: [Tailwind CSS](https://tailwindcss.com/)
-- Animations: AOS (optional)
 
 ---
 

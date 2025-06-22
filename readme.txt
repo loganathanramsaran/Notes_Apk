@@ -31,22 +31,85 @@ Hosted on **Netlify** → [View App](https://your-app-name.netlify.app)
 
 ## 📂 Folder Structure
 
-
+```
 notes-app/
 │
 ├── public/
 ├── src/
-│ ├── components/
-│ │ ├── Header.jsx
-│ │ ├── NoteCard.jsx
-│ │ ├── NoteForm.jsx
-│ │ └── SearchBar.jsx
-│ ├── App.jsx
-│ |── index.css
-│ └── main.jsx
+│   ├── components/
+│   │   ├── Header.jsx
+│   │   ├── NoteCard.jsx
+│   │   ├── NoteForm.jsx
+│   │   └── SearchBar.jsx
+│   ├── App.jsx
+│   |── index.css
+|   └── main.jsx
+│
 ├── index.html
 ├── tailwind.config.js
 ├── postcss.config.js
 ├── package.json
 └── README.md
+```
 
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/your-username/notes-app.git
+cd notes-app
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the app
+
+```bash
+npm run dev
+```
+
+App will be live at: `http://localhost:5173`
+
+---
+
+## 🛠 Features Preview
+
+| Feature            | Screenshot |
+|--------------------|------------|
+| Dark/Light Mode    | 🌗 Toggle in header |
+| Pin & Archive Note | 📌 📁 Icons on each note |
+| Gradient UI        | 🎨 Tailwind colors applied |
+| Live Search        | 🔍 Search notes from header |
+| Theme Switcher     | 🌈 Dropdown: Light / Dark / System |
+
+---
+
+## 📦 Deployment (Optional)
+
+Deploy easily to **Netlify**:
+
+1. Push your code to GitHub
+2. Connect GitHub repo to [Netlify](https://netlify.com/)
+3. Set build command: `npm run build`
+4. Publish directory: `dist`
+
+---
+
+## 🧹 Credits
+
+- Icons: [Lucide Icons](https://lucide.dev/)
+- UI: [Tailwind CSS](https://tailwindcss.com/)
+- Animations: AOS (optional)
+
+---
+
+## 📜 License
+
+MIT License © 2025 [LoganathanRamsaran]

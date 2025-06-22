@@ -1,1 +1,0 @@
-React Notes App with all features: pin, archive, trash, edit, tag filtering, dark mode

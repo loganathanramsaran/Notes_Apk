@@ -31,7 +31,6 @@ Hosted on **Netlify** → [View App](https://your-app-name.netlify.app)
 
 ## 📂 Folder Structure
 
-```base 
 
 notes-app/
 │
@@ -50,4 +49,4 @@ notes-app/
 ├── postcss.config.js
 ├── package.json
 └── README.md
-```
+

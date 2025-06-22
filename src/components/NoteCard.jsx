@@ -1,19 +1,10 @@
-import {
-  Pin,
-  PinOff,
-  Archive,
-  ArchiveRestore,
-  Trash2,
-  Undo2,
-  XCircle,
-  Pencil,
-} from "lucide-react";
+import { Pin,PinOff,Archive,ArchiveRestore,Trash2,Undo2,XCircle,Pencil} from "lucide-react";
 
 const colorMap = {
+  green: "border-green-600 text-green-600 bg-green-100 dark:bg-green-900",
   blue: "border-blue-500 text-blue-500 bg-blue-100 dark:bg-blue-900",
-  green: "border-green-500 text-green-500 bg-green-100 dark:bg-green-900",
   red: "border-red-500 text-red-500 bg-red-100 dark:bg-red-900",
-  yellow: "border-yellow-500 text-yellow-500 bg-yellow-100 dark:bg-yellow-900",
+  yellow: "border-yellow-500 text-yellow-500 bg-yellow-50 dark:bg-yellow-900",
   purple: "border-purple-500 text-purple-500 bg-purple-100 dark:bg-purple-900",
   gray: "border-gray-500 text-gray-500 bg-gray-100 dark:bg-gray-900",
 };
@@ -32,7 +23,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
 
   return (
     <div
-      className={`relative border-l-4 p-4 rounded-lg shadow bg-white/75 dark:bg-gray-700 transition-all duration-300 ease-in-out ${colorStyle}`}
+      className={`relative border-l-4 p-4 rounded-lg shadow bg-white dark:bg-gray-700 transition-all duration-300 ease-in-out ${colorStyle}`}
     >
       <div className="absolute top-2 right-2 flex gap-2">
         {!note.trashed ? (
@@ -40,7 +31,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
             <button
               onClick={() => toggle("pinned")}
               title={note.pinned ? "Unpin Note" : "Pin Note"}
-              className="hover:scale-110 transition-transform text-gray-600 dark:text-white"
+              className="hover:scale-110 transition-transform text-gray-600 dark:text-white/60"
             >
               {note.pinned ? <PinOff size={18} /> : <Pin size={18} />}
             </button>
@@ -48,7 +39,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
             <button
               onClick={() => toggle("archived")}
               title={note.archived ? "Unarchive Note" : "Archive Note"}
-              className="hover:scale-110 transition-transform text-gray-600 dark:text-white"
+              className="hover:scale-110 transition-transform text-gray-600 dark:text-white/60"
             >
               {note.archived ? (
                 <ArchiveRestore size={18} />
@@ -60,7 +51,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
             <button
               onClick={() => toggle("trashed")}
               title="Move to Trash"
-              className="hover:scale-110 transition-transform text-gray-600 dark:text-white"
+              className="hover:scale-110 transition-transform text-gray-600 dark:text-white/60"
             >
               <Trash2 size={18} />
             </button>
@@ -68,7 +59,7 @@ function NoteCard({ note, updateNote, setEditingNote }) {
             <button
               onClick={() => setEditingNote(note)}
               title="Edit Note"
-              className="hover:scale-110 transition-transform text-gray-600 dark:text-white"
+              className="hover:scale-110 transition-transform text-gray-600 dark:text-white/60"
             >
               <Pencil size={18} />
             </button>
@@ -105,9 +96,9 @@ function NoteCard({ note, updateNote, setEditingNote }) {
         {note.tags?.map((tag, i) => (
           <span
             key={i}
-            className={`px-2 py-0.5 rounded-lg bg-blue-600 ${
+            className={`px-2 py-0.5 rounded-lg ${
               colorMap[note.color]?.split(" ")[2] || "bg-blue-100"
-            } text-white dark:text-white`}
+            } dark:bg-green-950 dark:text-gray-300`}
           >
             #{tag}
           </span>

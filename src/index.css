@@ -14,24 +14,25 @@
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 6px;
+  height: auto;
 }
 
 ::-webkit-scrollbar-track {
-  background: #a1a1a1; /* Light mode track */
+  background: #a1a1a1; /* Light mode  */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3753f3c2; 
+  background: #43A047; 
   border-radius: 10px;
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #1f2937; /* Dark mode track */
+  background: #1f2937; /* Dark mode */
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #e09200; 
+  background: #CA8A04; 
   border-color: #1f2937;
 }
 

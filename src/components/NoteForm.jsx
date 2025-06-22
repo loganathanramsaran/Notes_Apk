@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { FileText, AlignLeft, Tag, Plus, Palette, Pencil } from "lucide-react";
 
-const colorOptions = ["blue", "green", "red", "yellow", "purple", "gray"];
+const colorOptions = [ "green","blue", "red", "yellow", "purple", "gray"];
 
 function NoteForm({ saveNote, editingNote, setEditingNote }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState("");
-  const [color, setColor] = useState("blue");
+  const [color, setColor] = useState("green");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -40,7 +40,7 @@ function NoteForm({ saveNote, editingNote, setEditingNote }) {
     setTitle("");
     setDescription("");
     setTags("");
-    setColor("blue");
+    setColor("green");
     setError("");
     setSuccess(true);
     setEditingNote(null);
@@ -48,10 +48,8 @@ function NoteForm({ saveNote, editingNote, setEditingNote }) {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-gray-300 lg:min-h-[70vh] dark:bg-gray-800 p-5 rounded-lg space-y-6 border-2 border-gray-300 dark:border-yellow-400 "
-    >
+    <form onSubmit={handleSubmit} className="bg-gray-200 lg:min-h-[70vh] dark:bg-gray-800 p-5 rounded-lg space-y-6 border-2 border-gray-300 dark:border-yellow-400 ">
+      
       {error && <div className="text-red-500 text-sm font-medium">{error}</div>}
       {success && (
         <div className="text-green-500 text-sm font-medium">✅ Note Saved!</div>
@@ -64,20 +62,17 @@ function NoteForm({ saveNote, editingNote, setEditingNote }) {
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="pl-8 w-full p-2 border rounded bg-gray-50 dark:bg-gray-700 dark:text-white"
+          className="pl-8 w-full p-2 border rounded bg-white/90 dark:bg-gray-700 dark:text-white"
         />
       </div>
 
       <div className="relative">
-        <AlignLeft
-          className="absolute left-2 top-2.5 text-gray-500"
-          size={18}
-        />
+        <AlignLeft className="absolute left-2 top-2.5 text-gray-500" size={18}/>
         <textarea
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="pl-8 w-full p-2 border rounded resize-none bg-gray-50 dark:bg-gray-700 dark:text-white"
+          className="pl-8 w-full p-2 border rounded resize-none bg-white/90 dark:bg-gray-700 dark:text-white"
           rows={3}
         ></textarea>
       </div>
@@ -89,7 +84,7 @@ function NoteForm({ saveNote, editingNote, setEditingNote }) {
           placeholder="Tags (comma-separated)"
           value={tags}
           onChange={(e) => setTags(e.target.value)}
-          className="pl-8 w-full p-2 border rounded bg-gray-50 dark:bg-gray-700 dark:text-white"
+          className="pl-8 w-full p-2 border rounded bg-white/90 dark:bg-gray-700 dark:text-white"
         />
       </div>
 
@@ -116,15 +111,14 @@ function NoteForm({ saveNote, editingNote, setEditingNote }) {
       <div className="flex justify-center">
         <button
           type="submit"
-          className="flex items-center text-sm gap-1 px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-        >
+          className="flex items-center gap-1 px-2 py-1 bg-green-700 dark:bg-gray-500 dark:hover:bg-gray-600 text-white rounded hover:bg-green-900 transition">
           {editingNote ? (
             <>
-              <Pencil size={14} /> Update Note
+              <Pencil size={18} /> Update Note
             </>
           ) : (
             <>
-              <Plus size={14} /> Add Note
+              <Plus size={18} className="text-yellow-400"/> Add Note
             </>
           )}
         </button>
@@ -136,14 +130,14 @@ function NoteForm({ saveNote, editingNote, setEditingNote }) {
 
 function getColor(color) {
   const map = {
+    green: "#43A047",
     blue: "#3B82F6",
-    green: "#10B981",
     red: "#EF4444",
     yellow: "#F59E0B",
     purple: "#8B5CF6",
     gray: "#6B7280",
   };
-  return map[color] || "#3B82F6";
+  return map[color] || "#43A047";
 }
 
 export default NoteForm;

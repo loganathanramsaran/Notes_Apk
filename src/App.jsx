@@ -70,11 +70,11 @@ function App() {
       note.description.toLowerCase().includes(search.toLowerCase())
     );
   })
-  .sort((a, b) => b.pinned - a.pinned); // ✅ pinned on top
+  .sort((a, b) => b.pinned - a.pinned); // pinned on top
 
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen bg-white/70 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
       <Header
         dark={dark}
         setDark={setDark}
@@ -83,7 +83,6 @@ function App() {
         setSearch={setSearch}
       />
       <main className="p-4 max-w-7xl mx-auto">
-        {/* View Switch Buttons */}
         <div className="flex flex-wrap gap-6 mb-8 mt-5">
           {[
             { name: "all", icon: <Eye size={16} /> },
@@ -96,8 +95,8 @@ function App() {
               onClick={() => setView(v.name)}
               className={`flex items-center gap-1 px-3 py-1 rounded transition capitalize text-sm ${
                 view === v.name
-                  ? "bg-blue-600 text-white font-semibold shadow"
-                  : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600"
+                  ? "bg-green-700 dark:bg-gray-600 dark:border-l-4 dark:border-l-yellow-600 text-white font-semibold shadow"
+                  : "bg-green-200 dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600"
               }`}
             >
               {v.icon}
@@ -115,7 +114,7 @@ function App() {
             />
           </div>
           <div className="lg:col-span-2 grid sm:grid-cols-2 border-2 border-gray-300 dark:border-yellow-400 p-2 rounded-lg
-           bg-gray-200 gap-4  overflow-y-scroll max-h-[70vh] dark:bg-gray-800">
+           bg-gray-100 gap-4  overflow-y-scroll max-h-[70vh] dark:bg-gray-800">
             {filteredNotes.length === 0 ? (
               <p className="text-gray-500 dark:text-gray-400">
                 No notes found.
